@@ -1,7 +1,5 @@
 # Cloud Resume Challenge
 
-![architecture-diagram](./assets/architecture-diagram.png)
-
 Series of challenges, which deepen AWS knowledge and provide an opportunity to perform technical experience using AWS.
 The main goal is to create and deploy the static website hosting a resume of the pretender.
 
