@@ -99,8 +99,6 @@ There is a single Item (record) in DynamoDB table, which gets constantly updated
 The JavaScript code is not talking directly to the DynamoDB.\
 Instead, Amazon API Gateway is set with one POST route, proxying request to a Lambda function responsible for updating a visitor counter.
 
-![sequence-diagram](./assets/sequence-diagram.png)
-
 #### 2.3 Python
 
 Lambda Function, responsible for handling the business logic of an application (in this case, updating and returning overall visitors count) is written using Python *3.9*, which is the latest runtime version supported by the Lambda [as of writing this section](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) (01.04.2023).
