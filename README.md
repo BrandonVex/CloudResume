@@ -98,7 +98,7 @@ Instead, Amazon API Gateway is set with one POST route, proxying request to a La
 
 #### 2.3 Python
 
-Lambda Function, responsible for handling the business logic of an application (in this case, updating and returning overall visitors count) is written using Python's latest version for Lambda [as of writing this section](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) (01.04.2023).
+Lambda Function, responsible for handling the business logic of an application (in this case, updating and returning overall visitors count) is written using Python's latest version for Lambda [as of writing this section] (06.30.2024).
 
 ### Stage 3 - Frontend & Backend integration
 
