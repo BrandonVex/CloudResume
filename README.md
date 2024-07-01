@@ -40,7 +40,6 @@ After completing the challenge, the practitioner is able to gain multiple skills
 - Serverless Architecture on AWS (Lambda, API Gateway, DynamoDB, S3)
 - Security (IAM, bucket policies, API authentication/authorization)
 - Networking (DNS if using Route53, ALB, Routing/IP traffic if creating own VPCs/subnets)
-- many more!
 
 ## Challenge stages
 
