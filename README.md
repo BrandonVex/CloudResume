@@ -100,11 +100,7 @@ Instead, Amazon API Gateway is set with one POST route, proxying request to a La
 
 #### 2.3 Python
 
-Lambda Function, responsible for handling the business logic of an application (in this case, updating and returning overall visitors count) is written using Python *3.9*, which is the latest runtime version supported by the Lambda [as of writing this section](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) (01.04.2023).
-
-**UPDATE 10.05.2023**: Python runtime upgraded to version 3.10, with back-compatibility support for Python3.9 preserved.
-
-The Python code is tested using `pytest` framework and `moto` library (for mocking AWS resources) and test cases can be found inside `infra/lambda/func.py.` directory.
+Lambda Function, responsible for handling the business logic of an application (in this case, updating and returning overall visitors count) is written using Python's latest version for Lambda [as of writing this section](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) (01.04.2023).
 
 ### Stage 3 - Frontend & Backend integration
 
