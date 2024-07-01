@@ -1,119 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Resume Challenge README</title>
-</head>
-<body>
-    <h1>AWS Cloud Resume Challenge</h1>
-    <p>This repository documents the steps and solutions for the AWS Cloud Resume Challenge. The challenge involves creating a cloud-based resume using various AWS services and CI/CD practices.</p>
+# Cloud Resume Challenge
 
-    <h2>Table of Contents</h2>
-    <ol>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#steps-and-solutions">Steps and Solutions</a></li>
-        <ul>
-            <li><a href="#step-1-html-and-css">Step 1: HTML and CSS</a></li>
-            <li><a href="#step-2-javascript">Step 2: JavaScript</a></li>
-            <li><a href="#step-3-s3-bucket-for-static-website-hosting">Step 3: S3 Bucket for Static Website Hosting</a></li>
-            <li><a href="#step-4-cloudfront-for-cdn">Step 4: CloudFront for CDN</a></li>
-            <li><a href="#step-5-custom-domain-and-ssl">Step 5: Custom Domain and SSL</a></li>
-            <li><a href="#step-6-dynamodb-for-visitor-count">Step 6: DynamoDB for Visitor Count</a></li>
-            <li><a href="#step-7-api-gateway-and-lambda">Step 7: API Gateway and Lambda</a></li>
-            <li><a href="#step-8-cicd-with-github-actions">Step 8: CI/CD with GitHub Actions</a></li>
-        </ul>
-        <li><a href="#issues-and-resolutions">Issues and Resolutions</a></li>
-        <li><a href="#conclusion">Conclusion</a></li>
-    </ol>
+![architecture-diagram](./assets/architecture-diagram.png)
 
-    <h2 id="overview">Overview</h2>
-    <p>The AWS Cloud Resume Challenge involves creating a personal resume hosted on AWS with several components:</p>
-    <ul>
-        <li>Static website hosted on S3</li>
-        <li>CloudFront distribution for CDN</li>
-        <li>Custom domain with SSL</li>
-        <li>Visitor counter using DynamoDB</li>
-        <li>API Gateway and Lambda for backend</li>
-        <li>CI/CD pipeline with GitHub Actions</li>
-    </ul>
+Series of challenges, which deepen AWS knowledge and provide an opportunity to perform technical experience using AWS.
+The main goal is to create and deploy the static website hosting a resume of the pretender.
 
-    <h2 id="steps-and-solutions">Steps and Solutions</h2>
+The additional steps include integrating it with database, providing an API, using automation for building, testing and deploying the code and the infrastructure and many others.
+Apart from standard objective, most of the steps include optional extensions recommendation. They are different from the core task and focus on practicing concrete set of skills in one of the specific areas.
 
-    <h3 id="step-1-html-and-css">Step 1: HTML and CSS</h3>
-    <p>Created a simple HTML and CSS resume page. The HTML file is named <code>index.html</code> and includes links to CSS files for styling.</p>
+## Table of Contents
 
-    <h3 id="step-2-javascript">Step 2: JavaScript</h3>
-    <p>Added JavaScript to enhance the resume page. This includes a script to fetch and display the visitor count.</p>
+- [Cloud Resume Challenge](#cloud-resume-challenge)
+  - [Table of Contents](#table-of-contents)
+  - [Benefits of the challenge](#benefits-of-the-challenge)
+  - [Challenge stages](#challenge-stages)
+    - [Stage 0 - Certification](#stage-0---certification)
+    - [Stage 1 - Creating Front End](#stage-1---creating-front-end)
+      - [1.1 HTML](#11-html)
+      - [1.2 CSS](#12-css)
+      - [1.3 JavaScript](#13-javascript)
+      - [1.4 Static assets](#14-static-assets)
+      - [1.5 CloudFront](#15-cloudfront)
+    - [Stage 2 - Building the API](#stage-2---building-the-api)
+      - [2.1 Database](#21-database)
+      - [2.2 API](#22-api)
+      - [2.3 Python](#23-python)
+    - [Stage 3 - Frontend \& Backend integration](#stage-3---frontend--backend-integration)
+      - [3.1 Dynamic counter value](#31-dynamic-counter-value)
+    - [Step 4 - Automation \& CI/CD](#step-4---automation--cicd)
+      - [4.1 CI/CD](#42-cicd)
 
-    <h3 id="step-3-s3-bucket-for-static-website-hosting">Step 3: S3 Bucket for Static Website Hosting</h3>
-    <p>Configured an S3 bucket for static website hosting:</p>
-    <ul>
-        <li>Created an S3 bucket and enabled static website hosting.</li>
-        <li>Uploaded the HTML, CSS, and JavaScript files to the bucket.</li>
-    </ul>
+## Benefits of the challenge
 
-    <h3 id="step-4-cloudfront-for-cdn">Step 4: CloudFront for CDN</h3>
-    <p>Set up CloudFront to distribute the content globally:</p>
-    <ul>
-        <li>Created a CloudFront distribution pointing to the S3 bucket.</li>
-        <li>Configured caching and SSL settings.</li>
-    </ul>
+After completing the challenge, the practitioner is able to gain multiple skills, related (but not limited) to AWS ecosystem:
 
-    <h3 id="step-5-custom-domain-and-ssl">Step 5: Custom Domain and SSL</h3>
-    <p>Configured a custom domain and SSL:</p>
-    <ul>
-        <li>Registered a domain with Route 53.</li>
-        <li>Created a certificate in AWS Certificate Manager (ACM) and associated it with the CloudFront distribution.</li>
-    </ul>
+- Software Development (Frontend / Backend perspective)
+- IaC (Infrastructure as Code) using CloudFormation, SAM, CDK
+- CI/CD (AWS CodeBuild, AWS CodeDeploy, AWS CodePipeline)
+- Serverless Architecture on AWS (Lambda, API Gateway, DynamoDB, S3)
+- Security (IAM, bucket policies, API authentication/authorization)
+- Networking (DNS if using Route53, ALB, Routing/IP traffic if creating own VPCs/subnets)
+- many more!
 
-    <h3 id="step-6-dynamodb-for-visitor-count">Step 6: DynamoDB for Visitor Count</h3>
-    <p>Set up DynamoDB to store and retrieve the visitor count:</p>
-    <ul>
-        <li>Created a DynamoDB table to store the count.</li>
-        <li>Configured the table with a primary key.</li>
-    </ul>
+## Challenge stages
 
-    <h3 id="step-7-api-gateway-and-lambda">Step 7: API Gateway and Lambda</h3>
-    <p>Set up API Gateway and Lambda to interact with DynamoDB:</p>
-    <ul>
-        <li>Created a Lambda function to update and fetch the visitor count from DynamoDB.</li>
-        <li>Configured API Gateway to trigger the Lambda function.</li>
-    </ul>
+### Stage 0 - Certification
 
-  <h3>Steps to Configure OIDC and SSO/Federation</h3>
-  <ol>
-      <li>
-          <strong>Enable OIDC Provider in AWS IAM:</strong>
-          <ul>
-              <li>Navigate to the AWS IAM console.</li>
-              <li>In the left navigation pane, choose <em>Identity providers</em>, then choose <em>Add provider</em>.</li>
-              <li>Select <em>OpenID Connect</em> as the provider type.</li>
-              <li>For Provider URL, enter <code>https://token.actions.githubusercontent.com</code>.</li>
-              <li>Choose <em>Get thumbprint</em>, and then choose <em>Add provider</em>.</li>
-          </ul>
-      </li>
-      <li>
-          <strong>Create an IAM Role for GitHub Actions:</strong>
-          <ul>
-              <li>In the AWS IAM console, choose <em>Roles</em>, then choose <em>Create role</em>.</li>
-              <li>Select <em>Web identity</em> as the type of trusted entity.</li>
-              <li>Choose the identity provider you just created and specify the conditions to allow your GitHub repository and branch to assume the role.</li>
-              <li>Attach the necessary policies to this role to allow the actions you need (e.g., access to S3, Lambda, etc.).</li>
-          </ul>
-      </li>
-      <li>
-  <\ol>
-    
-    <h2 id="issues-and-resolutions">Issues and Resolutions</h2>
-    <p>Encountered several issues during the implementation, including:</p>
-    <ul>
-        <li>Incorrect trust policy configuration for the IAM role.</li>
-        <li>Issues with OIDC provider setup in AWS.</li>
-        <li>Resolved by ensuring correct JSON format and accurate IAM role configurations.</li>
-    </ul>
+First challenge is to complete [AWS Cloud Practitioner](https://aws.amazon.com/certification/certified-cloud-practitioner/) certification exam.\
+I [successfully passed] the exam on 06/09/2023
 
-    <h2 id="conclusion">Conclusion</h2>
-    <p>Successfully completed the AWS Cloud Resume Challenge. This project provided hands-on experience with various AWS services and CI/CD practices, enhancing both cloud and DevOps skills.</p>
-</body>
-</html>
+> I have recently scheduled my [AWS Certified Solutions Architect – Associate](https://aws.amazon.com/certification/certified-solutions-architect-associate/) exam.\
+> [Here] on 07/24/2024
+
+### Stage 1 - Creating Front End
+
+This section is about building the visual representation of resume using plain HTML, CSS and JavaScript (which gets more important at stage 2).
+
+#### 1.1 HTML
+
+The resume should be created using HTML. It does not have to be pretty or contain sublime styling, since the challenge is not about perfect styling and responsive web design. Created the HTML by myself, using no frameworks.
+ 
+#### 1.2 CSS
+
+The resume should be just a little styled using *CSS*, to somewhat resemble the actual resume document.
+
+#### 1.3 JavaScript
+
+The resume should include simple JS script for counting number of visitors.\
+The first version was using `localStorage` class as a counter storage and then migrated to *AWS DynamoDB* Table for storing the visitors.
+
+#### 1.4 Static assets
+
+The resume contains multiple icons in *SVG* format.\
+All of them were downloaded under the [iconmonstr license](https://iconmonstr.com/license/) from [iconmonstr.com](https://iconmonstr.com/share-11-svg/).
+
+#### 1.5 CloudFront
+
+The resume page is accessible only via CloudFront Distribution.\
+The S3 Bucket serving the static content has all all public access blocked - [OAC](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) is configured with said S3 bucket as the origin with the bucket only allowing requests from CloudFront OAC.\
+The requests from HTTP are redirected to HTTPS.
+
+### Stage 2 - Building the API
+
+This section is about extending local visitor counter (written in JavaScript) to a full API which saves the values in AWS DynamoDB database.
+
+#### 2.1 Database
+
+The visitor counter is saved and retrieved from a single Table in AWS DynamoDB.\
+There is a single Item (record) in DynamoDB table, which gets constantly updated when a new visitor opens the page.
+
+| Primary key                | Attributes |
+| -------------------------- | ---------- |
+| Partition key: Visitor-Cnt | count      |
+| visitors                   | 100        |
+
+#### 2.2 API
+
+The JavaScript code is not talking directly to the DynamoDB.\
+Instead, Amazon API Gateway is set with one POST route, proxying request to a Lambda function responsible for updating a visitor counter.
+
+![sequence-diagram](./assets/sequence-diagram.png)
+
+#### 2.3 Python
+
+Lambda Function, responsible for handling the business logic of an application (in this case, updating and returning overall visitors count) is written using Python *3.9*, which is the latest runtime version supported by the Lambda [as of writing this section](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) (01.04.2023).
+
+**UPDATE 10.05.2023**: Python runtime upgraded to version 3.10, with back-compatibility support for Python3.9 preserved.
+
+The Python code is tested using `pytest` framework and `moto` library (for mocking AWS resources) and test cases can be found inside `infra/lambda/func.py.` directory.
+
+### Stage 3 - Frontend & Backend integration
+
+This section is about embedding the value coming from DynamoDB through AWS Lambda into the JavaScript code, making the page dynamically count and display the visitors number.
+
+#### 3.1 Dynamic counter value
+
+The script responsible for retrieving and updating the counter is found in `website/script.js` file.\
+It makes an HTTP POST request to the API Gateway endpoint in order to retrieve & update counter value on each DOM load.
+
+### Step 4 - Automation & CI/CD
+
+#### 4.1 CI/CD
+
+To streamline the configuration changes, the deployment is not done manually, but rather executed in an automated manner using GitHub Actions and a dedicated pipeline workflow.\
+All steps and stages can be seen in `.github/workflows/main.yaml` file.
+
+
+
