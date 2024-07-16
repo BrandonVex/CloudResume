@@ -14,3 +14,5 @@ async function updateCounter() {
 } 
 
 updateCounter();
+
+// AWS Lambda Code 2
