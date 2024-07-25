@@ -46,8 +46,8 @@ After completing the challenge, the practitioner is able to gain multiple skills
 First challenge is to complete [AWS Cloud Practitioner](https://aws.amazon.com/certification/certified-cloud-practitioner/) certification exam.\
 I [successfully passed] the exam on 06/09/2023
 
-> I have recently scheduled my [AWS Certified Solutions Architect – Associate](https://aws.amazon.com/certification/certified-solutions-architect-associate/) exam.\
-> [Here] on 07/24/2024
+> I have recently passed my [AWS Certified Solutions Architect – Associate](https://aws.amazon.com/certification/certified-solutions-architect-associate/) exam.\
+> Passed on 07/24/2024
 
 ### Stage 1 - Creating Front End
 
