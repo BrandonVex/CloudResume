@@ -47,7 +47,7 @@ First challenge is to complete [AWS Cloud Practitioner](https://aws.amazon.com/c
 I [successfully passed] the exam on 06/09/2023
 
 > I have recently passed my [AWS Certified Solutions Architect – Associate](https://aws.amazon.com/certification/certified-solutions-architect-associate/) exam.\
-> Passed on 07/24/2024
+> Passed on 08/20/2024
 
 ### Stage 1 - Creating Front End
 
